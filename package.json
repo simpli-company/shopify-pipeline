@@ -1,0 +1,93 @@
+{
+  "name": "shopify-pipeline",
+  "version": "0.4.2",
+  "description": "A modern pipeline for Shopify theme development",
+  "repository": "DynamoMTL/shopify-pipeline",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DynamoMTL",
+  "bugs": {
+    "url": "https://github.com/DynamoMTL/shopify-pipeline/issues"
+  },
+  "bin": {
+    "shopify-pipeline": "./cli.js"
+  },
+  "engine": ">= 6.4.0",
+  "dependencies": {
+    "@shopify/themekit": "0.6.12",
+    "autoprefixer": "^9.3.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-preset-env": "^1.7.0",
+    "bourbon": "^5.1.0",
+    "browser-sync": "^2.23.6",
+    "chalk": "2.3.0",
+    "clean-webpack-plugin": "0.1.17",
+    "cross-spawn": "6.0.3",
+    "css-loader": "0.28.9",
+    "cssnano": ">= v4.0.0-rc.2",
+    "debounce": "^1.1.0",
+    "dotenv-webpack": "^1.5.4",
+    "escape-string-regexp": "^1.0.5",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "express": "4.16.4",
+    "extract-loader": "^1",
+    "extract-text-webpack-plugin": "^2",
+    "file-loader": "^2.0.0",
+    "font-awesome": "^4.7.0",
+    "fs-extra": "5.0.0",
+    "git-revision-webpack-plugin": "^2.5",
+    "html-webpack-inline-chunk-plugin": "^1.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "imagemin": "^6.0.0",
+    "img-loader": "^3.0.1",
+    "imports-loader": "^0.7.1",
+    "inquirer": "^6.2.0",
+    "jest": "^23.6.0",
+    "jsonfile": "^5.0.0",
+    "limiter": "^1.1.3",
+    "loader-utils": "^1.1.0",
+    "lodash-webpack-plugin": "^0.11.5",
+    "md5": "^2.2.1",
+    "merge": "^1.2.1",
+    "minimist": "1.2.0",
+    "ngrok": "^2.2.25",
+    "node-bourbon": "^4.2.8",
+    "node-dir": "^0.1.17",
+    "node-sass": "^4.10.0",
+    "node-watch": "^0.5.9",
+    "on-build-webpack": "^0.1.0",
+    "postcss-loader": "^3.0.0",
+    "raw-loader": "^0.5.1",
+    "react-dev-utils": "5.0.0",
+    "sass-loader": "6.0.6",
+    "style-loader": "0.19.1",
+    "terminal-kit": "^1.17.6",
+    "thread-loader": "^1.1.2",
+    "underscore-template-loader": "^1.0.0",
+    "webpack": "~2.6",
+    "webpack-dev-middleware": "2.0.4",
+    "webpack-hot-middleware": "2.21.0",
+    "webpack-merge": "4.1.1",
+    "webpack-svgstore-plugin": "4.0.1",
+    "write-file-webpack-plugin": "4.0.2",
+    "yamljs": "0.3.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "safari >= 7"
+  ],
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}

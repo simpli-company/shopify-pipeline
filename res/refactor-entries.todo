@@ -1,0 +1,47 @@
+current situation:
+  `config/paths.js` contains `entrypoins`
+  entrypoints: {
+    index: resolveApp('src/assets/js/index.js'),
+    checkout: resolveApp('src/assets/js/checkout.js'),
+    static: resolveSelf('lib/static-files-glob.js')
+  }
+  `config/webpack.base.conf.js` contains
+      entry: config.paths.entrypoints
+  for each file that gets the entries there is
+    new HtmlWebpackPlugin({
+      excludeChunks: ['static', 'checkout'],
+      filename: '../layout/theme.liquid',
+      template: './layout/theme.liquid',
+      inject: true
+    }),
+  the `static` chunk is dealt with by a `file-loader` in `config/webpack.base.conf.js`
+    this loader needs to have all the other files that get bundles injected by HtmlWebpackPlugin in its `exclude`
+    static-files-glob.js is some magic that grabs all the liquid & json files that aren't excluded, plus everything in `src/assets/vendors`
+  the liquid files that get stuff injected to them each need a HtmlWebpackPlugin. Its setup varies by env.
+
+
+
+
+refactor:
+  ✔ merge `config/webpack.base.conf.js` from project @done(18-12-15 16:24)
+  ✔ use merge.smart @done(18-12-15 16:25)
+  ✔ refactor `config.entrypoints` to look like this @done(18-12-17 16:21)
+    entrypoints: {
+      index: {
+        inject: ['layout/theme.liquid', 'layout/search.liquid'],
+        src: resolveApp('src/assets/js/index.js'),
+        pluginConfig:{
+          blah: 'custom'
+        }
+      },
+      static: {
+        inject: false,
+        src: resolveSelf('lib/static-files-glob.js')
+      }
+    }
+    ✔ `webpack.entry.conf.js` constructs entry from this merged with the entrypoints in project config @done(18-12-17 16:21)
+    ✔ insert merge.smart webpack.entry.conf.js @done(18-12-17 16:21)
+    ✔ factor loader 'file-loader' `test: config.regex.static` into webpack.static.conf.js @done(18-12-18 10:57)
+      ✔ set the exclude to the merged entrypoints that have an inject @done(18-12-18 10:57)
+    ✔ factor loader 'underscore-template-loader'. This needs to load everything not loaded by the file-loader @done(18-12-18 10:58)
+    ☐ each conf needs to walks the merged entrypoints, adding HtmlWebpackPlugin for each with inject
