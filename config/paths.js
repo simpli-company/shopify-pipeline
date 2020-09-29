@@ -30,6 +30,7 @@ module.exports = {
     },
     checkout: {
       inject: ['layout/checkout.liquid'],
+      inject: ['layout/theme.liquid','layout/search.liquid'],
       src: 'src/assets/js/checkout.js'
     },
     static: {
